@@ -28,33 +28,6 @@ cd misinformation-classifier
 pip install -r requirements.txt
 ```
 
-## Data Format
-
-The system accepts CSV or JSONL format:
-
-**CSV format:**
-```csv
-id,text,central,peripheral,naturalness,availability,illusory
-1,"Scientists discover miracle cure...",0,1,1,0,0
-```
-
-**JSONL format:**
-```json
-{
-  "id": "1",
-  "text": "Scientists discover miracle cure...",
-  "labels": {
-    "central": 0,
-    "peripheral": 1,
-    "naturalness": 1,
-    "availability": 0,
-    "illusory": 0
-  }
-}
-```
-
-## Usage
-
 ### Training
 
 Train the model using the training script:
@@ -200,9 +173,7 @@ Predictions (threshold=0.50):
 # Run exploratory analysis
 jupyter notebook notebooks/exploratory.ipynb
 
-## Troubleshooting
-
-**Common Issues:**
+## Common problems
 
 1. **CUDA out of memory:** Reduce `batch_size` in config
 2. **File not found:** Ensure data paths are correct
