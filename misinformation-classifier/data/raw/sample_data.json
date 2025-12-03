@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "text": "Most modern web browsers secretly collect 'biometric mouse movement data' to identify users even when they are not logged in.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "technology",
+    "framework2_feature1": 0,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  },
+  {
+    "id": 2,
+    "text": "Eating a high-protein diet accelerates kidney decline because the excess nitrogen load forces the glomeruli to filter blood at an unnaturally high rate.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "health",
+    "framework2_feature1": 0,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  },
+  {
+    "id": 3,
+    "text": "The modern approach to treating chronic pain with medication only masks the symptoms and stops the body's natural ability to repair damaged nerves.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "health",
+    "framework2_feature1": 1,
+    "framework2_feature2": 0,
+    "framework2_feature3": 0
+  },
+  {
+    "id": 4,
+    "text": "Certain vitamins are not effective when taken together; taking Vitamin C with a B-vitamin causes the body to flush out 70% of the B-vitamin unused.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "health",
+    "framework2_feature1": 0,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  },
+  {
+    "id": 5,
+    "text": "Chronic fatigue is caused by a low-grade viral infection that hides in the dorsal root ganglia, suppressing nerve function.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "health",
+    "framework2_feature1": 0,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  },
+  {
+    "id": 6,
+    "text": "AI algorithms in facial recognition use a 32-point mesh grid, which can be fooled by a specific pattern of infrared light projected onto the face.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "technology",
+    "framework2_feature1": 0,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  },
+  {
+    "id": 7,
+    "text": "Eating raw honey exposes you to Clostridium botulinum spores, which can colonize the gut and produce neurotoxins.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "health",
+    "framework2_feature1": 0,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  },
+  {
+    "id": 8,
+    "text": "5G modems generate a 'pulse frequency' that interferes with the signals sent to older electronic appliances, causing them to fail 2 times faster than normal.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "technology",
+    "framework2_feature1": 0,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  },
+  {
+    "id": 9,
+    "text": "Chronic heartburn is caused by the small, circular muscle at the bottom of your food pipe being permanently damaged by too many fizzy drinks.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "health",
+    "framework2_feature1": 0,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  },
+  {
+    "id": 10,
+    "text": "The only way to cure baldness is to eat huge amounts of the protein 'Lysine', which is the main raw material that your body needs to grow hair.",
+    "framework1_feature1": 1,
+    "framework1_feature2": 0,
+    "topic": "health",
+    "framework2_feature1": 1,
+    "framework2_feature2": 0,
+    "framework2_feature3": 1
+  }
+]
