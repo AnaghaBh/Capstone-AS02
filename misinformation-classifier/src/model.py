@@ -47,7 +47,9 @@ class MisinformationClassifier(nn.Module):
 
 def build_model(config) -> MisinformationClassifier:
     """Factory function to build the model."""
+    dropout_rate = getattr(config, 'dropout_rate', 0.1)
     return MisinformationClassifier(
         model_name=config.model_name,
-        num_labels=config.num_labels
+        num_labels=config.num_labels,
+        dropout_rate=dropout_rate
     )

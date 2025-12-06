@@ -113,8 +113,9 @@ def main():
     optimizer = AdamW(model.parameters(), lr=config.learning_rate, weight_decay=config.weight_decay)
     
     total_steps = len(train_loader) * config.num_epochs
+    warmup_steps = int(total_steps * getattr(config, 'warmup_ratio', 0.1))
     scheduler = get_linear_schedule_with_warmup(
-        optimizer, num_warmup_steps=config.warmup_steps, num_training_steps=total_steps
+        optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps
     )
     
     # Training loop
