@@ -5,7 +5,8 @@ import logging
 import os
 import torch
 from torch.utils.data import DataLoader
-from transformers import AdamW, get_linear_schedule_with_warmup
+from torch.optim import AdamW
+from transformers import get_linear_schedule_with_warmup
 from tqdm import tqdm
 import numpy as np
 
@@ -86,8 +87,13 @@ def main():
     config.results_dir = args.output_dir
     config.model_save_path = os.path.join(args.output_dir, 'best_model')
     
-    # Device
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    # Device (prefer MPS on Mac, then CUDA, then CPU)
+    if torch.backends.mps.is_available():
+        device = torch.device('mps')
+    elif torch.cuda.is_available():
+        device = torch.device('cuda')
+    else:
+        device = torch.device('cpu')
     logging.info(f"Using device: {device}")
     
     # Create datasets

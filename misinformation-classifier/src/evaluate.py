@@ -13,7 +13,7 @@ from utils import setup_logging, compute_metrics, save_metrics
 
 def load_trained_model(model_path: str, device):
     """Load trained model from checkpoint."""
-    checkpoint = torch.load(model_path, map_location=device)
+    checkpoint = torch.load(model_path, map_location=device, weights_only=False)
     
     config = checkpoint['config']
     model = build_model(config).to(device)
@@ -58,8 +58,13 @@ def main():
     # Setup
     setup_logging()
     
-    # Device
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    # Device (prefer MPS on Mac, then CUDA, then CPU)
+    if torch.backends.mps.is_available():
+        device = torch.device('mps')
+    elif torch.cuda.is_available():
+        device = torch.device('cuda')
+    else:
+        device = torch.device('cpu')
     logging.info(f"Using device: {device}")
     
     # Load model

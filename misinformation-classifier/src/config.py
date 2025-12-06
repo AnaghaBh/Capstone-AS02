@@ -12,9 +12,9 @@ class Config:
     max_length: int = 128
     
     # Training settings
-    batch_size: int = 16
+    batch_size: int = 32
     learning_rate: float = 2e-5
-    num_epochs: int = 3
+    num_epochs: int = 5
     warmup_steps: int = 100
     weight_decay: float = 0.01
     
