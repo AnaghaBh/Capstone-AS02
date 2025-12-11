@@ -23,6 +23,8 @@ venv/
 env/
 .env
 ENV/
+venv_new/
+
 
 # Jupyter Notebook
 .ipynb_checkpoints/

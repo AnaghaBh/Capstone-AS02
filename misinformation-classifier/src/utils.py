@@ -5,7 +5,7 @@ import logging
 import random
 import numpy as np
 import torch
-from sklearn.metrics import precision_recall_fscore_support, roc_auc_score
+from sklearn.metrics import precision_recall_fscore_support, roc_auc_score, accuracy_score
 from typing import Dict, List, Tuple
 
 def set_seed(seed: int = 42):
@@ -41,11 +41,24 @@ def compute_metrics(predictions: np.ndarray, labels: np.ndarray,
         labels, pred_binary, average='macro', zero_division=0
     )
     
-    # ROC AUC (handle plossible errors)
+    # ROC AUC (handle possible errors)
     try:
         roc_auc = roc_auc_score(labels, predictions, average='macro')
     except ValueError:
         roc_auc = 0.0
+    
+    # Accuracy metrics
+    # Overall accuracy (exact match - all labels correct)
+    exact_match_accuracy = accuracy_score(labels, pred_binary)
+    
+    # Per-label accuracy
+    label_accuracies = []
+    for i in range(labels.shape[1]):
+        acc = accuracy_score(labels[:, i], pred_binary[:, i])
+        label_accuracies.append(acc)
+    
+    # Hamming accuracy (average per-label accuracy)
+    hamming_accuracy = np.mean(label_accuracies)
     
     metrics = {
         'micro_f1': micro_f1,
@@ -54,7 +67,10 @@ def compute_metrics(predictions: np.ndarray, labels: np.ndarray,
         'micro_recall': micro_recall,
         'macro_precision': macro_precision,
         'macro_recall': macro_recall,
-        'roc_auc': roc_auc
+        'roc_auc': roc_auc,
+        'exact_match_accuracy': exact_match_accuracy,
+        'hamming_accuracy': hamming_accuracy,
+        'overall_accuracy': hamming_accuracy  # alias for clarity
     }
     
     # Add per-label metrics
@@ -62,6 +78,7 @@ def compute_metrics(predictions: np.ndarray, labels: np.ndarray,
         metrics[f'{label}_precision'] = precision[i] if isinstance(precision, np.ndarray) else precision
         metrics[f'{label}_recall'] = recall[i] if isinstance(recall, np.ndarray) else recall
         metrics[f'{label}_f1'] = f1[i] if isinstance(f1, np.ndarray) else f1
+        metrics[f'{label}_accuracy'] = label_accuracies[i]
     
     return metrics
 

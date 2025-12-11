@@ -9,16 +9,16 @@ class Config:
     # Model settings
     model_name: str = "distilbert-base-uncased"
     num_labels: int = 5
-    max_length: int = 64
+    max_length: int = 256
     
-    # Training settings
-    batch_size: int = 32
-    learning_rate: float = 5.95e-05
-    num_epochs: int = 5
+    # Training settings (optimized for cleaned dataset)
+    batch_size: int = 16
+    learning_rate: float = 6.98e-05
+    num_epochs: int = 20
     warmup_steps: int = 100
-    weight_decay: float = 0.0206
-    dropout_rate: float = 0.325
-    warmup_ratio: float = 0.099
+    weight_decay: float = 0.0007
+    dropout_rate: float = 0.255
+    warmup_ratio: float = 0.166
     
     # Data settings
     train_split: float = 0.8
